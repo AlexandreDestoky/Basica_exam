@@ -25,12 +25,19 @@ use App\Http\Controllers\Works;
 //Route par défaut
 Route::get('/', function () {
   return view('home.index');
-});
+})->name("home");
+
+
+// ROUTE DE LA PAGE CONTACT
+// PATTERN: /contact
+Route::get('/contact', function () {
+  return view('contact.index');
+})->name("contact");
 
 
 //Back Office DashBoard
 Route::get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
