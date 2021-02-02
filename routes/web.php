@@ -34,6 +34,12 @@ Route::get('/contact', function () {
   return view('contact.index');
 })->name("contact");
 
+// ROUTE DE LA PAGE BLOG LISTE DES POSTS
+// PATTERN: /posts
+// CTRL: Posts
+// ACTION: index
+Route::get('/posts', [Posts::class, 'index'])->name('blog');
+
 
 //Back Office DashBoard
 Route::get('/dashboard', function () {
