@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Posts;
+use App\Http\Controllers\Works;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,24 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 // Route::get('/', function () {
-//     return view('welcome');
+//   return view('templates/index');
 // });
 
 
-
+//Route par défaut
 Route::get('/', function () {
-  return view('templates/index');
+  return view('home.index');
 });
 
 
-
-
-
-
-
-
-//Back Office ?
+//Back Office DashBoard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
