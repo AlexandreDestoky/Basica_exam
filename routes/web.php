@@ -68,6 +68,12 @@ Route::get('/works/{work}/{slug}', [Works::class, 'show'])
   ->name('portfolio.show');
 
 
+// AJAX MORE WORKS
+// PATTERN: /works/ajax/more
+// CTRL: Works
+// ACTION: more
+Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.more');
+
 //Back Office DashBoard
 Route::get('/dashboard', function () {
   return view('dashboard');

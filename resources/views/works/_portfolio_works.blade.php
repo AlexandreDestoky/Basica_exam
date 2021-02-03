@@ -7,27 +7,14 @@
   <div class="container">
     <div class="row">
 
-      <ul class="grid cs-style-2">
-        @foreach($works as $work)
-        <div class="col-md-4 col-sm-6">
-          <figure>
-            <img src="{{ asset('assets/img/portfolio/' . $work->image . '.jpg') }}" alt="{{ $work->title }}">
-            <figcaption>
-              <h3>{{ Str::words($work->title, 1, ' ') }}</h3>
-              <span>{{ $work->client->name }}</span>
-              <a href="{{ route('portfolio.show', ['work' => $work->id, 'slug' => Str::slug($work->title, '-')]) }}">Take a look</a>
-            </figcaption>
-          </figure>
-        </div>
-        @endforeach
+      <ul class="grid cs-style-2" id="portfolio_works_list">
+        @include('works._portfolio_works_list')
       </ul>
 
 
     </div>
 
-    <ul class="pager">
-      <li><a href="#">More works</a></li>
-    </ul>
+    @include('works._portfolio_works_more_btn')
 
   </div>
 </div> 

@@ -6,3 +6,4 @@
 <!-- Scrolling Nav JavaScript -->
 <script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('assets/js/scrolling-nav.js') }}"></script>
+@yield('scripts')

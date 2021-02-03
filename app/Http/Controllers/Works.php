@@ -22,4 +22,14 @@ class Works extends Controller
   }
 
 
+  public function more(Request $request)
+  {
+    $limit = (isset($request->limit)) ? $request->limit : 10;
+
+    $works = Work::orderBy('created_at', 'DESC')
+      ->take($limit)
+      ->offset($request->offset)
+      ->get();
+    return view('works._portfolio_works_list', compact('works'));
+  }
 }

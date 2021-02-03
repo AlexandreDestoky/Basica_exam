@@ -5,6 +5,11 @@
    Portfolio
  @endsection
 
+  @section('scripts')
+    <script src="{{ asset('assets/js/works/index.js')}}"></script>
+  @endsection
+
+
  @section('content')
  
   <!-- Page Title -->
