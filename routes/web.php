@@ -58,6 +58,15 @@ Route::get('/posts/{post}/{slug}', [Posts::class, 'show'])
 // ACTION: index
 Route::get('/works', [Works::class, 'index'])->name('portfolio');
 
+// DETAIL D'UN WORK
+// PATTERN: /works/work/slug
+// CTRL: Works
+// ACTION: show
+Route::get('/works/{work}/{slug}', [Works::class, 'show'])
+  ->where('work', '[1-9][0-9]*')
+  ->where('slug', '[a-z0-9][a-z0-9\-]*')
+  ->name('portfolio.show');
+
 
 //Back Office DashBoard
 Route::get('/dashboard', function () {

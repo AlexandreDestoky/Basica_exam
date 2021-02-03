@@ -25,4 +25,5 @@ class Work extends Model
   {
     return $this->belongsToMany('App\Models\Tag', 'works_has_tags');
   }
+
 }
