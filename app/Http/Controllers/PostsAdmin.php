@@ -8,10 +8,9 @@ use App\Models\Post;
 class PostsAdmin extends Controller
 {
   //
-  public function index(int $limit = 25)
+  public function index()
   {
     $posts = Post::orderBy('created_at', 'DESC')
-      ->take($limit)
       ->get();
     return view('postsAdmin.index', compact('posts'));
   }
@@ -21,11 +20,6 @@ class PostsAdmin extends Controller
     return view('postsAdmin._postsAdmin_form');
   }
 
-  // public function insert(Request $request)
-  // {
-  //   Post::create($request->only(["title","content","categorie_id"]) + ["image" => $imageName]);
-  //   return redirect()->route('postsAdmin.index');
-  // }
 
   public function insert(Request $request)
   {
