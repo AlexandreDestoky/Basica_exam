@@ -23,13 +23,13 @@ class WorksAdmin extends Controller
     public function insert(Request $request)
     {
   
-        // $request->validate([
-        //   'title' => 'required',
-        //   'content' => 'required',
-        //   'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //   'inSlider' => 'required',
-        //   'client_id' => 'required'
-        // ]);
+        $request->validate([
+          'title' => 'required',
+          'content' => 'required',
+          'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          'inSlider' => 'required',
+          'client_id' => 'required'
+        ]);
   
         if ($request->hasFile('image')) :
           $imageName = time() . '.' . $request->image->extension();
@@ -40,12 +40,8 @@ class WorksAdmin extends Controller
           $imageName = '';
         endif;
 
-
-        // $locations = $request->get('tag');
-        // var_dump($request->tag);
-
   
-      Work::create($request->only(['title', 'content', 'inSLider','client_id']) + ['image' => $imageName]);
+      Work::create($request->only(['title', 'content', 'inSlider','client_id']) + ['image' => $imageName])->tags()->sync($request->tags,false);
       return redirect()->route('worksAdmin.index');
     }
 }

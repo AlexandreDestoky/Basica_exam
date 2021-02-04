@@ -38,7 +38,7 @@
 
       
       <div class="col-sm-6 latest-news">
-        <h2>Lastest Twitter News</h2>
+        <h2>Latest Twitter News</h2>
         <div class="row">
           <div class="col-sm-12">
             <a class="twitter-timeline" data-width="600" data-height="600" href="https://twitter.com/ADestoky?ref_src=twsrc%5Etfw">Tweets by ADestoky</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
