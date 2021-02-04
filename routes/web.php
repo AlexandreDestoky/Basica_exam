@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Posts;
 use App\Http\Controllers\Works;
 use App\Http\Controllers\PostsAdmin;
+use App\Http\Controllers\WorksAdmin;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,36 +73,61 @@ Route::get('/works/{work}/{slug}', [Works::class, 'show'])
   ->name('portfolio.show');
 
 
-  // AJAX MORE WORKS
-  // PATTERN: /works/ajax/more
-  // CTRL: Works
-  // ACTION: more
-  Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.more');
-  
+// AJAX MORE WORKS
+// PATTERN: /works/ajax/more
+// CTRL: Works
+// ACTION: more
+Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.more');
 
 
 
 
 
-  
-  // LISTE DES POSTS
-  // PATTERN: /admin/posts
-  // CTRL: PostsAdmin
-  // ACTION: index
-  Route::get('/admin/posts', [PostsAdmin::class, 'index'])->name('postsAdmin.index');
-  
-  // AJOUT D'UN POST: FORMULAIRE
-  // PATTERN: /admin/posts/add/form
-  // CTRL: PostsAdmin
-  // ACTION: create
-  Route::get('/admin/posts/add/form', [PostsAdmin::class, 'form'])->name('postsAdmin.form');
-  
-  
-  // AJOUT D'UN POST: INSERT
-  // PATTERN: /admin/posts/add/insert
-  // CTRL: PostsAdmin
-  // ACTION: store
-  Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->name('postsAdmin.insert');
+
+
+// LISTE DES POSTS
+// PATTERN: /admin/posts
+// CTRL: PostsAdmin
+// ACTION: index
+Route::get('/admin/posts', [PostsAdmin::class, 'index'])->name('postsAdmin.index');
+
+// AJOUT D'UN POST: FORMULAIRE
+// PATTERN: /admin/posts/add/form
+// CTRL: PostsAdmin
+// ACTION: create
+Route::get('/admin/posts/add/form', [PostsAdmin::class, 'form'])->name('postsAdmin.form');
+
+
+// AJOUT D'UN POST: INSERT
+// PATTERN: /admin/posts/add/insert
+// CTRL: PostsAdmin
+// ACTION: store
+Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->name('postsAdmin.insert');
+
+
+
+
+
+
+// LISTE DES works
+// PATTERN: /admin/works
+// CTRL: worksAdmin
+// ACTION: index
+Route::get('/admin/works', [worksAdmin::class, 'index'])->name('worksAdmin.index');
+
+
+// AJOUT D'UN POST: FORMULAIRE
+// PATTERN: /admin/works/add/form
+// CTRL: worksAdmin
+// ACTION: create
+Route::get('/admin/works/add/form', [worksAdmin::class, 'form'])->name('worksAdmin.form');
+
+
+// AJOUT D'UN POST: INSERT
+// PATTERN: /admin/works/add/insert
+// CTRL: worksAdmin
+// ACTION: store
+Route::post('/admin/works/add/insert', [worksAdmin::class, 'insert'])->name('worksAdmin.insert');
 
 
 
