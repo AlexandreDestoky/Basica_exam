@@ -14,9 +14,23 @@ $(function() {
       $('#portfolio_works_list').append(reponsePHP)
         .find('.col-md-4:nth-last-of-type(-n+' + limit + ')')
         .addClass('collapse') // Classe CSS de Bootstrap qui cache le contenu
-        .fadeIn();
+        .fadeIn("slow");
+        myvar = false;
     });
 
   });
+
+
+      $(window).scroll(function () {
+        if (
+            $(window).scrollTop() + $(window).height() >
+                $(document).height() - 100 &&
+            myvar == false
+        ) {
+            myvar = true;
+            $("#works_index_more").click();
+        }
+    });
+
 
 });

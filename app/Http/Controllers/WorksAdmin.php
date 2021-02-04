@@ -40,7 +40,9 @@ class WorksAdmin extends Controller
           $imageName = '';
         endif;
 
+
         // $locations = $request->get('tag');
+        // var_dump($request->tag);
 
   
       Work::create($request->only(['title', 'content', 'inSLider','client_id']) + ['image' => $imageName]);

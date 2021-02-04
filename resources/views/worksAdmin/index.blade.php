@@ -29,6 +29,7 @@
                         <th class="bg-indigo-100 border text-left px-4 py-2">Created</th>
                         <th class="bg-indigo-100 border text-left px-4 py-2">Updated</th>
                         <th class="bg-indigo-100 border text-left px-4 py-2">Client</th>
+                        <th class="bg-indigo-100 border text-left px-4 py-2">Tag</th>
                         <th class="bg-indigo-100 border text-left px-4 py-2">Action</th>
                       </tr>
                     </thead>
@@ -43,6 +44,7 @@
                           <td class="border px-4 py-2">{{ \Carbon\Carbon::parse($work->created_at)->format('j/m/Y') }}</td>
                           <td class="border px-4 py-2">{{ \Carbon\Carbon::parse($work->updated_at)->format('j/m/Y') }}</td>
                           <td class="border px-4 py-2">{{ $work->client->name }}</td>
+                          <td class="border px-4 py-2">@include('tags._portfolio_tags_show', ['tags' => $work->tags])</td>
                           <td class="border px-4 py-2">
                             <a href="#">Edit</a> | <a href="#">Delete</a>
                           </td>

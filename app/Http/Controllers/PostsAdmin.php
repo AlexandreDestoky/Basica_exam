@@ -44,3 +44,4 @@ class PostsAdmin extends Controller
     return redirect()->route('postsAdmin.index');
   }
 }
+$tags = \App\Models\Tag::orderBy('name', 'ASC')->get(); $tags = \App\Models\Tag::orderBy('name', 'ASC')->get();

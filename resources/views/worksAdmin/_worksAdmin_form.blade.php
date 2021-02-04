@@ -63,15 +63,15 @@
                         @endforeach
                       </select>
                     </div>
-                    {{-- <div>
-                      <label for="categorie">Tags</label>
-                    </div> --}}
-                    {{-- <div class="mb-2">
+                    <div>
+                      <label for="tag">Tags</label>
+                    </div>
+                    <div class="mb-2">
                         @foreach ($tags as $tag)
                           <input type="checkbox" id=" {{$tag->id}}" name="tag" value="{{$tag->id}}">
                           <label for="{{$tag->id}}">{{$tag->name}} </label><br>
                         @endforeach
-                    <div class="mb-2"> --}}
+                    <div class="mb-2">
                       <button class="h-10 px-5 my-2 transition-colors duration-150 bg-indigo-200 rounded-lg focus:shadow-outline hover:bg-indigo-400">Valider</button>
                     </div>
                   </form>
