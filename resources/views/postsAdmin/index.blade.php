@@ -42,7 +42,12 @@
                           <td class="border px-4 py-2">{{ $post->categorie->name }}</td>
                           <td class="border px-4 py-2">{{ $post->image }}</td>
                           <td class="border px-4 py-2">
-                            <a href="{{ route('postsAdmin.editForm', $post->id) }}">Edit</a> | <a href="#">Delete</a>
+                            <a href="{{ route('postsAdmin.editForm', $post->id) }}">Edit</a> | 
+                            <form action="{{ route('postsAdmin.destroy', $post->id) }}" method="post" class="py-1.5">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <button type="submit">Delete</button>
+                            </form>
                           </td>
                         </tr>
                       @endforeach

@@ -60,4 +60,10 @@ class PostsAdmin extends Controller
     $post->update($request->all());
     return redirect()->route('postsAdmin.index');
   }
+
+  public function destroy(Post $post)
+  {
+    $post->delete();
+    return redirect()->route('postsAdmin.index');
+  }
 }

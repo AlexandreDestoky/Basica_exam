@@ -52,83 +52,88 @@ Route::get('/posts/{post}/{slug}', [Posts::class, 'show'])
   ->name('blog.show');
 
 
-  
+
 //------------------------Route des works---------------------------------------------
-  
-  // LISTE DES WORKS
-  // PATTERN: /works
-  // CTRL: Works
-  // ACTION: index
-  Route::get('/works', [Works::class, 'index'])->name('portfolio');
-  
-  
-  // DETAIL D'UN WORK
-  // PATTERN: /works/work/slug
-  // CTRL: Works
-  // ACTION: show
-  Route::get('/works/{work}/{slug}', [Works::class, 'show'])
+
+// LISTE DES WORKS
+// PATTERN: /works
+// CTRL: Works
+// ACTION: index
+Route::get('/works', [Works::class, 'index'])->name('portfolio');
+
+
+// DETAIL D'UN WORK
+// PATTERN: /works/work/slug
+// CTRL: Works
+// ACTION: show
+Route::get('/works/{work}/{slug}', [Works::class, 'show'])
   ->where('work', '[1-9][0-9]*')
   ->where('slug', '[a-z0-9][a-z0-9\-]*')
   ->name('portfolio.show');
-  
-  
-  // AJAX MORE WORKS
-  // PATTERN: /works/ajax/more
-  // CTRL: Works
-  // ACTION: more
-  Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.more');
-  
-   
-  
-  //----------------------------PostsAdmin-----------------------------------------
-  
-  // LISTE DES POSTS
-  // PATTERN: /admin/posts
-  // CTRL: PostsAdmin
-  // ACTION: index
-  Route::get('/admin/posts', [PostsAdmin::class, 'index'])->name('postsAdmin.index');
-  
-  // AJOUT D'UN POST: FORMULAIRE
-  // PATTERN: /admin/posts/add/form
-  // CTRL: PostsAdmin
-  // ACTION: create
-  Route::get('/admin/posts/add/form', [PostsAdmin::class, 'addForm'])->name('postsAdmin.addForm');
-  
-  
-  // AJOUT D'UN POST: INSERT
-  // PATTERN: /admin/posts/add/insert
-  // CTRL: PostsAdmin
-  // ACTION: store
-  Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->name('postsAdmin.insert');
-  
-  
-  // EDITION D'UN POST: FORMULAIRE
-  // PATTERN: /admin/posts/edit/form/x
-  // CTRL: AdminPosts
-  // ACTION: edit
-  Route::get('/admin/posts/edit/form/{post}', [PostsAdmin::class, 'editForm'])->name('postsAdmin.editForm');
-  
-  // EDITION D'UN POST: UPDATE
-  // PATTERN: /admin/posts/edit/x
-  // CTRL: AdminPosts
-  // ACTION: edit
-  Route::put('/admin/posts/edit/{post}', [PostsAdmin::class, 'update'])->name('postsAdmin.update');
-  
-  
 
-  //----------------------------WorksAdmin-----------------------------------------
-  
-  // LISTE DES works
-  // PATTERN: /admin/works
-  // CTRL: worksAdmin
-  // ACTION: index
-  Route::get('/admin/works', [worksAdmin::class, 'index'])->name('worksAdmin.index');
-  
-  
-  // AJOUT D'UN work: FORMULAIRE
-  // PATTERN: /admin/works/add/form
-  // CTRL: worksAdmin
-  // ACTION: create
+
+// AJAX MORE WORKS
+// PATTERN: /works/ajax/more
+// CTRL: Works
+// ACTION: more
+Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.more');
+
+
+
+//----------------------------PostsAdmin-----------------------------------------
+
+// LISTE DES POSTS
+// PATTERN: /admin/posts
+// CTRL: PostsAdmin
+// ACTION: index
+Route::get('/admin/posts', [PostsAdmin::class, 'index'])->name('postsAdmin.index');
+
+// AJOUT D'UN POST: FORMULAIRE
+// PATTERN: /admin/posts/add/form
+// CTRL: PostsAdmin
+// ACTION: create
+Route::get('/admin/posts/add/form', [PostsAdmin::class, 'addForm'])->name('postsAdmin.addForm');
+
+
+// AJOUT D'UN POST: INSERT
+// PATTERN: /admin/posts/add/insert
+// CTRL: PostsAdmin
+// ACTION: store
+Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->name('postsAdmin.insert');
+
+
+// EDITION D'UN POST: FORMULAIRE
+// PATTERN: /admin/posts/edit/form/x
+// CTRL: AdminPosts
+// ACTION: edit
+Route::get('/admin/posts/edit/form/{post}', [PostsAdmin::class, 'editForm'])->name('postsAdmin.editForm');
+
+// EDITION D'UN POST: UPDATE
+// PATTERN: /admin/posts/edit/x
+// CTRL: AdminPosts
+// ACTION: edit
+Route::put('/admin/posts/edit/{post}', [PostsAdmin::class, 'update'])->name('postsAdmin.update');
+
+
+// SUPPRESSION D'UN POST
+// PATTERN: /admin/posts/delete/x
+// CTRL: AdminPosts
+// ACTION: destroy
+Route::delete('/admin/posts/delete/{post}', [PostsAdmin::class, 'destroy'])->name('postsAdmin.destroy');
+
+//----------------------------WorksAdmin-----------------------------------------
+
+// LISTE DES works
+// PATTERN: /admin/works
+// CTRL: worksAdmin
+// ACTION: index
+Route::get('/admin/works', [worksAdmin::class, 'index'])->name('worksAdmin.index');
+
+
+// AJOUT D'UN work: FORMULAIRE
+// PATTERN: /admin/works/add/form
+// CTRL: worksAdmin
+// ACTION: create
 Route::get('/admin/works/add/form', [worksAdmin::class, 'addForm'])->name('worksAdmin.addForm');
 
 
