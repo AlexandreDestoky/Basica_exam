@@ -24,7 +24,7 @@
           <!-- Product Image & Available Colors -->
           <div class="col-sm-6">
             <div class="product-image-large">
-              <img src="{{ asset('assets/img/portfolio/' . $work->image . '.jpg') }}" alt="{{ $work->title }}e">
+              <img src="{{ asset('assets/img/portfolio/' . $work->image ) }}" alt="{{ $work->title }}e">
             </div>
             <div class="colors">
             <span class="color-white"></span>
