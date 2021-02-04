@@ -16,7 +16,7 @@
               <div class="p-6 bg-white border-b border-gray-200">
                   {{-- <h3 class="my-2 text-left py-2 text-2xl">Gestion des posts</h3> --}}
                   <div class="my-2 text-left py-2">
-                    <a href="{{ route('worksAdmin.form') }}">Ajouter un enregistrement</a>
+                    <a href="{{ route('worksAdmin.addForm') }}">Ajouter un enregistrement</a>
                   </div>
                   <table class="table-auto shadow-lg bg-white">
                     <thead>

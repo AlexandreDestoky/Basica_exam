@@ -15,9 +15,9 @@ class WorksAdmin extends Controller
       return view('worksAdmin.index', compact('works'));
     }
 
-    public function form()
+    public function addForm()
     {
-      return view('worksAdmin._worksAdmin_form');
+      return view('worksAdmin._worksAdmin_addForm');
     }
 
     public function insert(Request $request)
