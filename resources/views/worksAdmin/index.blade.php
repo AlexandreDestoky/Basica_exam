@@ -1,6 +1,6 @@
 {{--
   Variables disponibles
-    - $posts ARRAY(Post)
+    - $works ARRAY(Work)
 --}}
 
 <x-app-layout>

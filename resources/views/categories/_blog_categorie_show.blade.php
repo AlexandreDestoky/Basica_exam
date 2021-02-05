@@ -1,6 +1,6 @@
 {{--
   Variables disponibles
-    - $categories Categorie
+    - $categories Array(Categorie)
  --}}
 
  <h4>Categories</h4>

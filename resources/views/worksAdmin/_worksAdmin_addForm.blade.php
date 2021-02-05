@@ -1,8 +1,8 @@
 {{--
   Variables disponibles
-    - $categories ARRAY(Categorie)
+    - $clients ARRAY(Client)
+    - $tags ARRAY(Tag)
 --}}
-
 @php
   $tags = \App\Models\Tag::orderBy('name', 'ASC')->get();
   $clients = \App\Models\Client::orderBy('name', 'ASC')->get();

@@ -1,3 +1,6 @@
+/**
+ * AJAX -> MORE WORKS AU CLICK PUIS AU SCROLL
+ */
 $(function() {
 
   $('#works_index_more').click(function(e) {
@@ -13,9 +16,9 @@ $(function() {
     }, function(reponsePHP) {
       $('#portfolio_works_list').append(reponsePHP)
         .find('.col-md-4:nth-last-of-type(-n+' + limit + ')')
-        .addClass('collapse') // Classe CSS de Bootstrap qui cache le contenu
+        .addClass('collapse')
         .fadeIn("slow");
-        myvar = false;
+        testeur = false;
     });
 
   });
@@ -25,9 +28,9 @@ $(function() {
         if (
             $(window).scrollTop() + $(window).height() >
                 $(document).height() - 100 &&
-            myvar == false
+            testeur == false
         ) {
-            myvar = true;
+            testeur = true;
             $("#works_index_more").click();
         }
     });

@@ -1,6 +1,8 @@
 {{--
   Variables disponibles
-    - $categories ARRAY(Categorie)
+    - $work Work
+    - $clients ARRAY(Client)
+    - $tags ARRAY(Tag)
 --}}
 
 @php

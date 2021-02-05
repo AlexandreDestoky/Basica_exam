@@ -7,7 +7,9 @@ use App\Models\Work;
 
 class WorksAdmin extends Controller
 {
-  //
+  /**
+   * Affichage de la liste des works
+   */
   public function index()
   {
     $works = Work::orderBy('created_at', 'DESC')
@@ -15,14 +17,21 @@ class WorksAdmin extends Controller
     return view('worksAdmin.index', compact('works'));
   }
 
+
+  /**
+   * retourne vue formulaire d'ajout d'un work
+   */
   public function addForm()
   {
     return view('worksAdmin._worksAdmin_addForm');
   }
 
+
+  /**
+   * Insert d'un work
+   */
   public function insert(Request $request)
   {
-
     $request->validate([
       'title' => 'required',
       'content' => 'required',
@@ -40,16 +49,22 @@ class WorksAdmin extends Controller
       $imageName = '';
     endif;
 
-
     Work::create($request->only(['title', 'content', 'inSlider', 'client_id']) + ['image' => $imageName])->tags()->sync($request->tags);
     return redirect()->route('worksAdmin.index');
   }
 
+
+  /**
+   * retourne vue d'édition d'un work
+   */
   public function editForm(Work $work)
   {
     return view('worksAdmin._worksAdmin_editForm', compact('work'));
   }
 
+  /**
+   * update d'un work
+   */
   public function update(Request $request, Work $work)
   {
     $request->validate([
@@ -74,6 +89,9 @@ class WorksAdmin extends Controller
     return redirect()->route('worksAdmin.index');
   }
 
+  /**
+   * delete d'un work
+   */
   public function destroy(Work $work){
     $work->tags()->detach();
     $work->delete();

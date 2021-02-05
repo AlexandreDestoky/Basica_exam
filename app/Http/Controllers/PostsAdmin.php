@@ -7,7 +7,9 @@ use App\Models\Post;
 
 class PostsAdmin extends Controller
 {
-  //
+  /**
+   * affichage de la liste des post
+   */
   public function index()
   {
     $posts = Post::orderBy('created_at', 'DESC')
@@ -15,12 +17,19 @@ class PostsAdmin extends Controller
     return view('postsAdmin.index', compact('posts'));
   }
 
+
+  /**
+   * retourne vue formulaire d'ajout d'un post
+   */
   public function addForm()
   {
     return view('postsAdmin._postsAdmin_addForm');
   }
 
 
+  /**
+   * insert d'un post
+   */
   public function insert(Request $request)
   {
     $request->validate([
@@ -43,11 +52,19 @@ class PostsAdmin extends Controller
     return redirect()->route('postsAdmin.index');
   }
 
+
+  /**
+   * retourne vue d'édition d'un post
+   */
   public function editForm(Post $post)
   {
     return view('postsAdmin._postsAdmin_editForm', compact('post'));
   }
 
+
+  /**
+   * update d'un post
+   */
   public function update(Request $request, Post $post)
   {
     $request->validate([
@@ -69,6 +86,10 @@ class PostsAdmin extends Controller
     return redirect()->route('postsAdmin.index');
   }
 
+
+  /**
+   * delete d'un post
+   */
   public function destroy(Post $post)
   {
     $post->delete();
