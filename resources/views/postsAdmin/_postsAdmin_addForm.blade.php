@@ -19,7 +19,7 @@
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
                   <div class="my-2 text-left py-2">
-                    <a href="{{ route('postsAdmin.index') }}">Revenir vers la gestion des posts</a>
+                    <a href="{{ route('postsAdmin.index') }}" class="hover:text-red-400">Revenir vers la gestion des posts</a>
                   </div>
                   <h3 class="my-2 text-left py-2 text-2xl">Ajout d'un enregistrement</h3>
                   <form action="{{ route('postsAdmin.insert') }}" method="post" enctype="multipart/form-data">
@@ -53,7 +53,7 @@
                       </select>
                     </div>
                     <div class="mb-2">
-                      <button class="h-10 px-5 my-2 transition-colors duration-150 bg-indigo-200 rounded-lg focus:shadow-outline hover:bg-indigo-400">Valider</button>
+                      <button class="h-10 px-5 my-2 transition-colors duration-150 bg-indigo-700 text-white rounded-lg focus:shadow-outline hover:bg-indigo-400">Valider</button>
                     </div>
                   </form>
               </div>
