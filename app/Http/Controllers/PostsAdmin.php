@@ -61,12 +61,11 @@ class PostsAdmin extends Controller
       $imageName = time() . '.' . $request->image->extension();
       $request->image->storeAs('posts/images', $imageName);
       $request->image->move(public_path('assets/img/blog'), $imageName);
-
+      $post->update($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
     else :
-      $imageName = '';
+      $post->update($request->only(['title', 'content', 'categorie_id']));
     endif;
 
-    Post::create($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
     return redirect()->route('postsAdmin.index');
   }
 

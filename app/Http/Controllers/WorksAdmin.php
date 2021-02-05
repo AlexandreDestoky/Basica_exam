@@ -64,12 +64,12 @@ class WorksAdmin extends Controller
       $imageName = time() . '.' . $request->image->extension();
       $request->image->storeAs('works/images', $imageName);
       $request->image->move(public_path('assets/img/portfolio'), $imageName);
+      $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]) + ['image' => $imageName]);
 
     else :
-      $imageName = '';
+      $work->update($request->only(['title', 'client_id', 'content', 'inSlider',]));
     endif;
 
-    Work::create($request->only(['title', 'content', 'inSlider', 'client_id']) + ['image' => $imageName])->tags()->sync($request->tags);
     $work->tags()->sync($request->tags);
     return redirect()->route('worksAdmin.index');
   }
