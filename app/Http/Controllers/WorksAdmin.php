@@ -41,7 +41,7 @@ class WorksAdmin extends Controller
     endif;
 
 
-    Work::create($request->only(['title', 'content', 'inSlider', 'client_id']) + ['image' => $imageName])->tags()->sync($request->tags, false);
+    Work::create($request->only(['title', 'content', 'inSlider', 'client_id']) + ['image' => $imageName])->tags()->sync($request->tags);
     return redirect()->route('worksAdmin.index');
   }
 
@@ -60,7 +60,16 @@ class WorksAdmin extends Controller
       'client_id' => 'required'
     ]);
 
-    $work->update($request->all());
+    if ($request->hasFile('image')) :
+      $imageName = time() . '.' . $request->image->extension();
+      $request->image->storeAs('works/images', $imageName);
+      $request->image->move(public_path('assets/img/portfolio'), $imageName);
+
+    else :
+      $imageName = '';
+    endif;
+
+    Work::create($request->only(['title', 'content', 'inSlider', 'client_id']) + ['image' => $imageName])->tags()->sync($request->tags);
     $work->tags()->sync($request->tags);
     return redirect()->route('worksAdmin.index');
   }

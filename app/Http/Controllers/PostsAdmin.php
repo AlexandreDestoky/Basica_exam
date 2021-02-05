@@ -57,7 +57,16 @@ class PostsAdmin extends Controller
       'categorie_id' => 'required'
     ]);
 
-    $post->update($request->all());
+    if ($request->hasFile('image')) :
+      $imageName = time() . '.' . $request->image->extension();
+      $request->image->storeAs('posts/images', $imageName);
+      $request->image->move(public_path('assets/img/blog'), $imageName);
+
+    else :
+      $imageName = '';
+    endif;
+
+    Post::create($request->only(['title', 'content', 'categorie_id']) + ['image' => $imageName]);
     return redirect()->route('postsAdmin.index');
   }
 

@@ -24,7 +24,7 @@
                     <a href="{{ route('worksAdmin.index') }}">Revenir vers la gestion des works</a>
                   </div>
                   <h3 class="my-2 text-left py-2 text-2xl">Ajout d'un enregistrement</h3>
-                    <form action="{{route('worksAdmin.update',$work->id)}}" method="post">
+                    <form action="{{route('worksAdmin.update',$work->id)}}" method="post" enctype="multipart/form-data">
                     @csrf
                     {{ method_field('PUT') }}
                     <div>
@@ -44,7 +44,7 @@
                         <label for="image">Image</label>
                       </div>
                       <div class="mb-2">
-                        <input type="text" name="image" id="image" value="{{ $work->image }}">
+                        <input type="file" name="image" id="image">
                       </div>
                     <br>
                     <div>

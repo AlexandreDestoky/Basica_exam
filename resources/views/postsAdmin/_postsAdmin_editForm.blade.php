@@ -42,7 +42,7 @@
                      <label for="image">Image</label>
                    </div>
                    <div class="mb-2">
-                     <input type="text" name="image" id="image" value="{{ $post->image }}">
+                     <input type="file" name="image" id="image">
                    </div>
                    <div>
                      <label for="categorie">Catégorie</label>
