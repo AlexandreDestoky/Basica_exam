@@ -10,8 +10,7 @@ class Posts extends Controller
   public function index(int $limit = 4)
   {
     $posts = Post::orderBy('created_at', 'DESC')
-      ->take($limit)
-      ->get();
+      ->paginate($limit);
     return view('blog.index', compact('posts'));
   }
 

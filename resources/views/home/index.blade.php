@@ -8,7 +8,7 @@
  @section('content')
 
   {{-- Carousel (le slider) --}}
-  @include('works._home_carousel', ['works' =>\App\Models\Work::orderBy('created_at', 'DESC')->take(4)->where('inSlider', 1)->get()])
+  @include('works._home_works_carousel', ['works' =>\App\Models\Work::orderBy('created_at', 'DESC')->take(4)->where('inSlider', 1)->get()])
 
   {{-- Portfolio (les 6 works ) --}}
   @include('works._home_works', ['works' =>\App\Models\Work::orderBy('created_at', 'DESC')->take(6)->get()])
