@@ -86,40 +86,40 @@ Route::get('/works/ajax/more/', [Works::class, 'more'])->name('portfolio.ajax.mo
 // PATTERN: /admin/posts
 // CTRL: PostsAdmin
 // ACTION: index
-Route::get('/admin/posts', [PostsAdmin::class, 'index'])->name('postsAdmin.index');
+Route::get('/admin/posts', [PostsAdmin::class, 'index'])->middleware(['auth'])->name('postsAdmin.index');
 
 // AJOUT D'UN POST: FORMULAIRE
 // PATTERN: /admin/posts/add/form
 // CTRL: PostsAdmin
 // ACTION: create
-Route::get('/admin/posts/add/form', [PostsAdmin::class, 'addForm'])->name('postsAdmin.addForm');
+Route::get('/admin/posts/add/form', [PostsAdmin::class, 'addForm'])->middleware(['auth'])->name('postsAdmin.addForm');
 
 
 // AJOUT D'UN POST: INSERT
 // PATTERN: /admin/posts/add/insert
 // CTRL: PostsAdmin
 // ACTION: store
-Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->name('postsAdmin.insert');
+Route::post('/admin/posts/add/insert', [PostsAdmin::class, 'insert'])->middleware(['auth'])->name('postsAdmin.insert');
 
 
 // EDITION D'UN POST: FORMULAIRE
 // PATTERN: /admin/posts/edit/form/x
 // CTRL: AdminPosts
 // ACTION: edit
-Route::get('/admin/posts/edit/form/{post}', [PostsAdmin::class, 'editForm'])->name('postsAdmin.editForm');
+Route::get('/admin/posts/edit/form/{post}', [PostsAdmin::class, 'editForm'])->middleware(['auth'])->name('postsAdmin.editForm');
 
 // EDITION D'UN POST: UPDATE
 // PATTERN: /admin/posts/edit/x
 // CTRL: AdminPosts
 // ACTION: edit
-Route::put('/admin/posts/edit/{post}', [PostsAdmin::class, 'update'])->name('postsAdmin.update');
+Route::put('/admin/posts/edit/{post}', [PostsAdmin::class, 'update'])->middleware(['auth'])->name('postsAdmin.update');
 
 
 // SUPPRESSION D'UN POST
 // PATTERN: /admin/posts/delete/x
 // CTRL: AdminPosts
 // ACTION: destroy
-Route::delete('/admin/posts/delete/{post}', [PostsAdmin::class, 'destroy'])->name('postsAdmin.destroy');
+Route::delete('/admin/posts/delete/{post}', [PostsAdmin::class, 'destroy'])->middleware(['auth'])->name('postsAdmin.destroy');
 
 //----------------------------WorksAdmin-----------------------------------------
 
@@ -127,41 +127,41 @@ Route::delete('/admin/posts/delete/{post}', [PostsAdmin::class, 'destroy'])->nam
 // PATTERN: /admin/works
 // CTRL: worksAdmin
 // ACTION: index
-Route::get('/admin/works', [worksAdmin::class, 'index'])->name('worksAdmin.index');
+Route::get('/admin/works', [worksAdmin::class, 'index'])->middleware(['auth'])->name('worksAdmin.index');
 
 
 // AJOUT D'UN work: FORMULAIRE
 // PATTERN: /admin/works/add/form
 // CTRL: worksAdmin
 // ACTION: create
-Route::get('/admin/works/add/form', [worksAdmin::class, 'addForm'])->name('worksAdmin.addForm');
+Route::get('/admin/works/add/form', [worksAdmin::class, 'addForm'])->middleware(['auth'])->name('worksAdmin.addForm');
 
 
 // AJOUT D'UN work: INSERT
 // PATTERN: /admin/works/add/insert
 // CTRL: worksAdmin
 // ACTION: store
-Route::post('/admin/works/add/insert', [worksAdmin::class, 'insert'])->name('worksAdmin.insert');
+Route::post('/admin/works/add/insert', [worksAdmin::class, 'insert'])->middleware(['auth'])->name('worksAdmin.insert');
 
 
 // EDITION D'UN POST: FORMULAIRE
 // PATTERN: /admin/posts/edit/form/x
 // CTRL: AdminPosts
 // ACTION: edit
-Route::get('/admin/works/edit/form/{work}', [WorksAdmin::class, 'editForm'])->name('worksAdmin.editForm');
+Route::get('/admin/works/edit/form/{work}', [WorksAdmin::class, 'editForm'])->middleware(['auth'])->name('worksAdmin.editForm');
 
 
 // EDITION D'UN POST: UPDATE
 // PATTERN: /admin/posts/edit/x
 // CTRL: AdminPosts
 // ACTION: edit
-Route::put('/admin/works/edit/{work}', [WorksAdmin::class, 'update'])->name('worksAdmin.update');
+Route::put('/admin/works/edit/{work}', [WorksAdmin::class, 'update'])->middleware(['auth'])->name('worksAdmin.update');
 
 // SUPPRESSION D'UN POST
 // PATTERN: /admin/posts/delete/x
 // CTRL: AdminPosts
 // ACTION: destroy
-Route::delete('/admin/works/delete/{work}', [WorksAdmin::class, 'destroy'])->name('worksAdmin.destroy');
+Route::delete('/admin/works/delete/{work}', [WorksAdmin::class, 'destroy'])->middleware(['auth'])->name('worksAdmin.destroy');
 
 
 
