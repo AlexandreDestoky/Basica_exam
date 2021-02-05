@@ -150,11 +150,18 @@ Route::post('/admin/works/add/insert', [worksAdmin::class, 'insert'])->name('wor
 // ACTION: edit
 Route::get('/admin/works/edit/form/{work}', [WorksAdmin::class, 'editForm'])->name('worksAdmin.editForm');
 
+
 // EDITION D'UN POST: UPDATE
 // PATTERN: /admin/posts/edit/x
 // CTRL: AdminPosts
 // ACTION: edit
 Route::put('/admin/works/edit/{work}', [WorksAdmin::class, 'update'])->name('worksAdmin.update');
+
+// SUPPRESSION D'UN POST
+// PATTERN: /admin/posts/delete/x
+// CTRL: AdminPosts
+// ACTION: destroy
+Route::delete('/admin/works/delete/{work}', [WorksAdmin::class, 'destroy'])->name('worksAdmin.destroy');
 
 
 

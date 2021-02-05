@@ -73,4 +73,10 @@ class WorksAdmin extends Controller
     $work->tags()->sync($request->tags);
     return redirect()->route('worksAdmin.index');
   }
+
+  public function destroy(Work $work){
+    $work->tags()->detach();
+    $work->delete();
+    return redirect()->route('worksAdmin.index');
+}
 }

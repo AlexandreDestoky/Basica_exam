@@ -47,7 +47,10 @@
                           <td class="border px-4 py-2">@include('tags._portfolio_tags_show', ['tags' => $work->tags])</td>
                           <td class="border px-4 py-2">
                             <a href="{{ route('worksAdmin.editForm', $work->id) }}">Edit</a> | 
-                            <a href="#">Delete</a>
+                            <form action="{{route('worksAdmin.destroy', $work->id) }}" method="post" class="py-1.5">
+                              {{ csrf_field() }}
+                              {{ method_field('DELETE') }}
+                              <button type="submit">Delete</button>
                           </td>
                         </tr>
                       @endforeach
