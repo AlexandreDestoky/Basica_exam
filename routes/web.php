@@ -144,6 +144,19 @@ Route::get('/admin/works/add/form', [worksAdmin::class, 'addForm'])->name('works
 Route::post('/admin/works/add/insert', [worksAdmin::class, 'insert'])->name('worksAdmin.insert');
 
 
+// EDITION D'UN POST: FORMULAIRE
+// PATTERN: /admin/posts/edit/form/x
+// CTRL: AdminPosts
+// ACTION: edit
+Route::get('/admin/works/edit/form/{work}', [WorksAdmin::class, 'editForm'])->name('worksAdmin.editForm');
+
+// EDITION D'UN POST: UPDATE
+// PATTERN: /admin/posts/edit/x
+// CTRL: AdminPosts
+// ACTION: edit
+Route::put('/admin/works/edit/{work}', [WorksAdmin::class, 'update'])->name('worksAdmin.update');
+
+
 
 //---------------------BackOffice------------------------------------------------
 

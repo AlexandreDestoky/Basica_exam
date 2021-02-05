@@ -46,7 +46,8 @@
                           <td class="border px-4 py-2">{{ $work->client->name }}</td>
                           <td class="border px-4 py-2">@include('tags._portfolio_tags_show', ['tags' => $work->tags])</td>
                           <td class="border px-4 py-2">
-                            <a href="#">Edit</a> | <a href="#">Delete</a>
+                            <a href="{{ route('worksAdmin.editForm', $work->id) }}">Edit</a> | 
+                            <a href="#">Delete</a>
                           </td>
                         </tr>
                       @endforeach

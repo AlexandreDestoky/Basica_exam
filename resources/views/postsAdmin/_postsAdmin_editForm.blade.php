@@ -23,7 +23,7 @@
                    <a href="{{ route('postsAdmin.index') }}">Revenir vers la gestion des posts</a>
                  </div>
                  <h3 class="my-2 text-left py-2 text-2xl">Données du post</h3>
-                 <form action="{{ route('postsAdmin.update', $post->id) }}" method="post">
+                 <form action="{{ route('postsAdmin.update', $post->id) }}" method="post" enctype="multipart/form-data">
                    @csrf
                    {{ method_field('PUT') }}
                    <div>

@@ -53,7 +53,7 @@ class PostsAdmin extends Controller
     $request->validate([
       'title' => 'required',
       'content' => 'required',
-      'image' => 'required',
+      'image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:2048',
       'categorie_id' => 'required'
     ]);
 
